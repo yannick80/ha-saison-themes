@@ -1,0 +1,154 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Saison-Themes",
+        "description": "Sets up seasonal themes with background images. The integration creates the file themes/saison_themes.yaml. Periods, colors and birthdays are set afterwards via \"Configure\"."
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Saison-Themes is already set up."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Saison-Themes settings",
+        "description": "If periods overlap, this order applies: birthday, New Year's Eve, Halloween, Christmas, Easter. Outside all periods \"Saison Standard\" is active.",
+        "sections": {
+          "general": {
+            "name": "Standard",
+            "description": "Color outside the seasons.",
+            "data": {
+              "color": "Primary color"
+            }
+          },
+          "halloween": {
+            "name": "Halloween",
+            "description": "Period in which the theme is active. It may span the turn of the year.",
+            "data": {
+              "enabled": "Enabled",
+              "start": "Start (DD.MM)",
+              "end": "End (DD.MM)",
+              "color": "Primary color"
+            },
+            "data_description": {
+              "start": "Day and month, e.g. 15.10. The year is ignored.",
+              "end": "Day and month, e.g. 15.10. The year is ignored."
+            }
+          },
+          "christmas": {
+            "name": "Christmas",
+            "description": "Period in which the theme is active. It may span the turn of the year.",
+            "data": {
+              "enabled": "Enabled",
+              "start": "Start (DD.MM)",
+              "end": "End (DD.MM)",
+              "color": "Primary color"
+            },
+            "data_description": {
+              "start": "Day and month, e.g. 15.10. The year is ignored.",
+              "end": "Day and month, e.g. 15.10. The year is ignored."
+            }
+          },
+          "new_year": {
+            "name": "New Year's Eve",
+            "description": "Period in which the theme is active. It may span the turn of the year.",
+            "data": {
+              "enabled": "Enabled",
+              "start": "Start (DD.MM)",
+              "end": "End (DD.MM)",
+              "color": "Primary color"
+            },
+            "data_description": {
+              "start": "Day and month, e.g. 15.10. The year is ignored.",
+              "end": "Day and month, e.g. 15.10. The year is ignored."
+            }
+          },
+          "easter": {
+            "name": "Easter",
+            "description": "Easter Sunday is calculated automatically every year.",
+            "data": {
+              "enabled": "Enabled",
+              "days_before": "Days before Easter Sunday",
+              "days_after": "Days after Easter Sunday",
+              "color": "Primary color"
+            }
+          },
+          "birthday": {
+            "name": "Birthday",
+            "description": "The theme is active for one day on a birthday. 29.02. is celebrated on 28.02. in non-leap years.",
+            "data": {
+              "enabled": "Enabled",
+              "dates": "Birthdays",
+              "color": "Primary color"
+            },
+            "data_description": {
+              "dates": "Name and date, separated by commas or line breaks, e.g. \"Anna 14.03, Ben 02.07\". The name is optional."
+            }
+          }
+        }
+      }
+    },
+    "error": {
+      "invalid_day_month": "Please enter a valid date in the format DD.MM, e.g. 15.10.",
+      "invalid_birthdays": "These entries contain no valid date (DD.MM): {invalid}"
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Mode",
+        "state": {
+          "auto": "Automatic",
+          "standard": "Standard",
+          "halloween": "Halloween",
+          "christmas": "Christmas",
+          "new_year": "New Year's Eve",
+          "easter": "Easter",
+          "birthday": "Birthday"
+        }
+      }
+    },
+    "sensor": {
+      "active_season": {
+        "name": "Active season",
+        "state": {
+          "standard": "Standard",
+          "halloween": "Halloween",
+          "christmas": "Christmas",
+          "new_year": "New Year's Eve",
+          "easter": "Easter",
+          "birthday": "Birthday"
+        },
+        "state_attributes": {
+          "theme": {
+            "name": "Theme"
+          },
+          "mode": {
+            "name": "Mode"
+          },
+          "themes_loaded": {
+            "name": "Themes loaded"
+          }
+        }
+      },
+      "birthday_today": {
+        "name": "Birthday today"
+      },
+      "easter_sunday": {
+        "name": "Easter Sunday"
+      }
+    }
+  },
+  "issues": {
+    "themes_not_loaded": {
+      "title": "Saison-Themes are not loaded",
+      "description": "Home Assistant does not know the seasonal themes. The integration created `themes/saison_themes.yaml`, but your `configuration.yaml` does not load the `themes` folder.\n\nAdd this to `configuration.yaml` (or add the line below an existing `frontend:`):\n\n```yaml\nfrontend:\n  themes: !include_dir_merge_named themes\n```\n\nThen restart Home Assistant. This notice disappears automatically."
+    },
+    "reload_failed": {
+      "title": "Themes could not be reloaded",
+      "description": "An error occurred while reloading themes. This is usually caused by an error in another theme file or in `configuration.yaml`.\n\nError: {error}"
+    }
+  }
+}
