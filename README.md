@@ -159,7 +159,15 @@ The entries under `homeassistant: packages:` and `frontend: themes:` in `configu
 
 ## For developers
 
-The integration has no dependencies outside Home Assistant. CI runs the HACS validation and hassfest; see [CHANGELOG.md](CHANGELOG.md) for what changed.
+The integration has no dependencies outside Home Assistant. The date logic (`logic.py`) is plain Python and has its own tests:
+
+```bash
+pip install -r requirements-test.txt
+ruff check custom_components tests
+pytest
+```
+
+CI also runs the HACS validation and hassfest. See [CHANGELOG.md](CHANGELOG.md) for what changed.
 
 **Releasing:** bump `version` in `custom_components/saison_themes/manifest.json` and `VERSION` in `const.py`, move the CHANGELOG entry to the new version, then publish a GitHub release with the tag `vX.Y.Z`.
 
