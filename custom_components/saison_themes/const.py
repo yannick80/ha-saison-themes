@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Final
 
 DOMAIN: Final = "saison_themes"
-VERSION: Final = "1.0.0"
+VERSION: Final = "1.0.1"
 
 # URL under which the background images are served (no login required, like /local).
 STATIC_URL: Final = "/saison_themes_static"
