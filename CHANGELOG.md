@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- License: copyright holder written as full name.
 - Integration icon: Home Assistant shows it under Devices & services instead of a placeholder.
 - Repository: tests for the date logic (Easter, periods across the new year, 29 February, priorities) and ruff in CI.
 
