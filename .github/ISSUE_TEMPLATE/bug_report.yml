@@ -1,0 +1,36 @@
+name: Bug report
+description: The theme does not switch, looks wrong, or setup fails.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens, and what did you expect?
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Saison-Themes version
+      description: Shown under Settings > Devices & services > Saison-Themes.
+    validations:
+      required: true
+  - type: input
+    id: ha_version
+    attributes:
+      label: Home Assistant version
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser or app
+      placeholder: e.g. Chrome 131, HA Companion app on iOS, Shelly Wall Display
+  - type: textarea
+    id: details
+    attributes:
+      label: States, repairs and logs
+      description: >
+        State of "Active season" with its attributes, any notice under Settings > Repairs,
+        and errors from the log mentioning saison_themes.
+      render: text

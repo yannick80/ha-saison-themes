@@ -1,0 +1,10 @@
+name: Feature request
+description: Suggest a season, a theme detail or something else the integration should do.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like it to do?
+    validations:
+      required: true
