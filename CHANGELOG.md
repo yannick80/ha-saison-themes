@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.1
 
 - License: copyright holder written as full name.
 - Integration icon: Home Assistant shows it under Devices & services instead of a placeholder.
