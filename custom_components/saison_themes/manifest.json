@@ -4,10 +4,10 @@
   "codeowners": ["@yannick80"],
   "config_flow": true,
   "dependencies": ["frontend", "http"],
-  "documentation": "https://github.com/yannick80/ha_saison_themes",
+  "documentation": "https://github.com/yannick80/ha-saison-themes",
   "integration_type": "service",
   "iot_class": "calculated",
-  "issue_tracker": "https://github.com/yannick80/ha_saison_themes/issues",
+  "issue_tracker": "https://github.com/yannick80/ha-saison-themes/issues",
   "requirements": [],
   "single_config_entry": true,
   "version": "1.0.0"
